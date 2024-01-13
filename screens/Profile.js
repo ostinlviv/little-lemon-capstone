@@ -138,10 +138,7 @@ const Profile = () => {
               warning
               onPress={async () => {
                 signOut();
-                await AsyncStorage.setItem(
-                  "isOnboardingCompleted",
-                  JSON.stringify(false)
-                );
+                await AsyncStorage.clear();
               }}
             >
               Log out

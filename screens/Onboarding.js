@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { useContext, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Button from "../components/Button";
@@ -6,6 +6,7 @@ import { validateEmail } from "../utils";
 import TextInputComponent from "../components/TextInput";
 import { GlobalContext } from "../Context";
 import { globalStyles } from "../globalStyles";
+import Hero from "../components/Hero";
 
 const Onboarding = () => {
   const [email, setEmail] = useState("");
@@ -13,16 +14,16 @@ const Onboarding = () => {
   const isEmailValid = validateEmail(email);
   const { signIn } = useContext(GlobalContext);
   return (
-    <View style={globalStyles.container}>
-      <View style={{ ...globalStyles.body, padding: 16 }}>
-        <Text style={styles.title}>Let us get to know you</Text>
-        <View>
-          <View>
-            <Text style={styles.inputTitle}>First name</Text>
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+      <View style={globalStyles.body}>
+        <Hero />
+        <View style={{ padding: 25 }}>
+          <View style={{ marginBottom: 16 }}>
+            <Text style={styles.inputTitle}>Name *</Text>
             <TextInputComponent value={firstName} onChangeText={setFirstName} />
           </View>
           <View>
-            <Text style={styles.inputTitle}>Email</Text>
+            <Text style={styles.inputTitle}>Email *</Text>
             <TextInputComponent
               value={email}
               onChangeText={setEmail}
@@ -56,25 +57,18 @@ const Onboarding = () => {
           Next
         </Button>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   inputTitle: {
-    textAlign: "center",
     marginBottom: 12,
     fontSize: 16,
   },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-    textAlign: "center",
-    marginTop: 48,
-  },
   footer: {
     height: 80,
-    paddingHorizontal: 16,
+    paddingHorizontal: 25,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-end",

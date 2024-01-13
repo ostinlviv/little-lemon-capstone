@@ -17,7 +17,7 @@ const Header = ({ navigation }) => {
       <Pressable
         style={{ flex: 1, alignItems: "center" }}
         onPress={() => {
-          navigation.navigate("Home");
+          isOnboardingCompleted && navigation.navigate("Home");
         }}
       >
         <Image style={styles.logo} source={require("../assets/logo.png")} />

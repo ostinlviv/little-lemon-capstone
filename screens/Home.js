@@ -19,6 +19,7 @@ import {
 import { useUpdateEffect } from "../utils";
 import Filters from "../components/Filters";
 import { globalStyles } from "../globalStyles";
+import Hero from "../components/Hero";
 
 const API_URL =
   "https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/capstone.json";
@@ -121,21 +122,8 @@ const Home = () => {
   return (
     <SafeAreaView style={globalStyles.container}>
       <View style={globalStyles.body}>
-        <View style={{ backgroundColor: "#495E57", padding: 25 }}>
-          <Text style={styles.title}>Little lemon</Text>
-          <View style={styles.wrapper}>
-            <View style={{ flex: 1 }}>
-              <Text style={styles.subtitle}>Chicago</Text>
-              <Text style={styles.text}>
-                We are a family owned Mediterranean restaurant, focused on
-                traditional recipes served with a modern twist.
-              </Text>
-            </View>
-            <Image
-              style={styles.image}
-              source={require("../assets/hero_image.png")}
-            />
-          </View>
+        <View style={{ backgroundColor: "#495E57" }}>
+          <Hero />
           <View style={styles.inputWrapper}>
             <Ionicons name="md-search" size={25} color="black" />
             <TextInput
@@ -165,36 +153,6 @@ const styles = StyleSheet.create({
   sectionList: {
     paddingHorizontal: 16,
   },
-  title: {
-    fontFamily: "MarkaziText-Regular",
-    fontSize: 64,
-    color: "#F4CE14",
-    height: 55,
-    marginTop: -15,
-  },
-  subtitle: {
-    fontFamily: "MarkaziText-Regular",
-    fontSize: 40,
-    color: "white",
-  },
-  text: {
-    fontFamily: "Karla-Regular",
-    fontSize: 16,
-    color: "white",
-  },
-  wrapper: {
-    flexDirection: "row",
-    alignItems: "flex-end",
-    gap: 8,
-    marginBottom: 16,
-  },
-  image: {
-    width: 120,
-    height: 120,
-    resizeMode: "cover",
-    borderRadius: 16,
-    marginTop: 10,
-  },
   inputWrapper: {
     flexDirection: "row",
     borderWidth: 1,
@@ -203,6 +161,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 5,
     gap: 10,
+    marginHorizontal: 25,
+    marginBottom: 25,
   },
   input: {
     fontSize: 16,

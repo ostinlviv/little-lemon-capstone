@@ -153,7 +153,9 @@ export default function App() {
             <Stack.Screen
               name="Onboarding"
               component={OnboardingScreen}
-              options={{ headerShown: false }}
+              options={{
+                header: ({ navigation }) => <Header navigation={navigation} />,
+              }}
             />
           )}
         </Stack.Navigator>
